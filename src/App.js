@@ -8,9 +8,12 @@ import LifeCycle from './LifeCycle';
 import ListRendering from './ListRendering';
 import Uncontrolled from './Uncontrolled';
 // import {Routes,Route, BrowserRouter} from 'react-router-dom';
+import { Provider } from 'react-redux';
+import  Store  from './Redux/Store';
 
 function App() {
   let name="midhun";
+  // const store=createStore();
   return (
     <div className="App">
       <header className="App-header">
@@ -24,7 +27,11 @@ function App() {
           <Route path="/contact" element={<Contact/>}></Route>
         </Routes>
         </BrowserRouter> */}
-        <Uncontrolled/>
+        <Provider store={Store}>     
+             <Uncontrolled/>
+             <Counter/>
+             </Provider>
+
       </header>
     </div>
   );
